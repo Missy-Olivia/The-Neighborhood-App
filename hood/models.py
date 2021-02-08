@@ -13,7 +13,7 @@ class Hood(models.Model):
     hood_photo = models.ImageField(upload_to='hoods/')
     hood_name = models.CharField(max_length=100, null=True)
     occupants_count = models.PositiveIntegerField(default=0)
-    location = models.ForeignKey(Location, null=True)
+    location = models.ForeignKey(Location, on_delete=models.CASCADE,null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     @classmethod
@@ -67,3 +67,25 @@ class Profile(models.Model):
 
     class Meta:
         ordering = ['user']
+
+class Join(models.Model):
+	user_id = models.OneToOneField(User,on_delete=models.CASCADE)
+	hood_id = models.ForeignKey(Hood,on_delete=models.CASCADE)
+
+	def __str__(self):
+		return self.user_id
+
+class Posts(models.Model):
+	title = models.CharField(max_length = 300)
+	content = models.TextField()
+	posted_by = models.ForeignKey(User, null=True,on_delete=models.CASCADE)
+	hood = models.ForeignKey(Hood,on_delete=models.CASCADE)
+
+	def save_posts(self):
+		self.save()
+
+	def delete_posts(self):
+		self.delete()
+
+	def __str__(self):
+		return self.title
