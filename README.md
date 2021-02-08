@@ -1,11 +1,8 @@
-
-
-
-
 # The NeighborhoodWatch-App
 
 ###  PROJECT DESCRIPTION
 This is a web application that allows you to be in the loop about everything happening in your neighborhood. From contact information of different police and health centers to making announcements or even posts, as well as starting businesses.
+
 ## User Stories
 As a user of the application I should be able to:
 
@@ -75,7 +72,7 @@ Missy Olivia
 # Contact
 -Email Address: ngamissia@gmail.com
 
--github: Missy Olivia
+-github: Missy-Olivia
 
 ## License
 Copyright (c) 2021 Missy-Olivia
